@@ -8,11 +8,19 @@
 
 		<link rel="stylesheet" href="../css/reset.css">
 		<link rel="stylesheet" href="../css/reveal.css">
-		<link rel="stylesheet" href="../css/theme/league.css">
+		<link rel="stylesheet" href="../css/theme/night.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../lib/css/monokai.css">
 
+		<style>
+				.multi-column-container{
+					display: flex;
+				}
+				.column{
+					flex: 1;
+				}
+		</style>
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -26,9 +34,69 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<section><h1>Python Fundamentals</h1></section>
+					<section>
+						<h1>Python Fundamentals</h1>
+					</section>
+
+					<section data-markdown>
+							## Sales Pitch
+							- Powerful
+							- Expressive
+							- Great Standard Library
+							- Extensive Third Party Libraries
+							- Open Source
+					</section>
+
+					<section data-markdown>
+							## Installation
+							- Windows: Download and install from www.python.org
+							- Get version 3+
+							- macOS: `brew install python`
+					</section>
+
 				</section>
-			</div>
+
+				<section>
+					<section>
+						<h1>Overview</h1>
+					</section>
+
+					<section>
+						<h2>Strongly, Dynamically Typed</h2>
+						<div class="multi-column-container">
+							<div class="column">
+								<section data-markdown>
+										- **Strong**: the type of a value doesn't change in unexpected ways.
+										- **Dynamic**: runtime objects (values) have a type, as opposed to static typing where variables have a type.
+								</section>
+							</div>
+							<div class="column code">
+								<pre><code class="hljs shell">
+&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; type(x)
+&lt;class 'list'&gt;
+&gt;&gt;&gt; y = 'Hello!'
+&gt;&gt;&gt; type(y)
+&lt;class 'str'&gt;
+&gt;&gt;&gt; z = 42
+&gt;&gt;&gt; type(z)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; x = 1.0
+&gt;&gt;&gt; type(x)
+&lt;class 'float'&gt;
+&gt;&gt;&gt; y = {}
+&gt;&gt;&gt; type(y)
+&lt;class 'dict'&gt;
+&gt;&gt;&gt; z = True
+&gt;&gt;&gt; type (z)
+&lt;class 'bool'&gt;
+								</code></pre>
+							</div>
+							</div>
+					</section>
+	
+				</section>
+		</div>
 		</div>
 
 		<script src="../js/reveal.js"></script>
