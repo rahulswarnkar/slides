@@ -33,7 +33,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				<section id="python-fundamentals">
 					<section>
 						<h1>Python Fundamentals</h1>
 					</section>
@@ -54,21 +54,95 @@
 						- macOS: `brew install python`
 					</section>
 
-				</section>
-
-				<section>
 					<section>
-						<h1>Overview</h1>
+						<h2>REPL</h2>
+						<div class="multi-column-container">
+							<div class="column" data-markdown>
+								- **R**ead
+								- **E**valuate
+								- **P**rint
+								- **L**oop
+							</div>
+							<div class="column code">
+								<pre><code class="hljs shell">
+>>> x = 4
+>>> x
+4
+>>> _
+4
+								</code></pre>
+							</div>
+						</div>
+						<div data-markdown>
+							- Enter REPL: `python3`
+							- Exit REPL: `quit()` or `exit()` or ctrl+D on mac
+						</div>
 					</section>
+
+				</section><!--#python-fundamentals-->
+
+				<section id="overview">
+
+						<section>
+							<h1>Overview</h1>
+						</section>
+
+						<section>
+								<h2>Syntax/Semantics</h2>
+								<div class="multi-column-container">
+									<div class="column" data-markdown>
+										- Uses white space to delimit code blocks
+										- Semicolons after statements are optional
+									</div>
+									<div class="column code">
+										<pre><code class="hljs python">
+		def foo(x):
+			if x == 0:
+				bar()
+				baz()
+			else:
+				qux(x)
+				foo(x - 1)
+										</code></pre>
+									</div>
+									</div>
+							</section>
+		
+							<section data-markdown>
+									## Indentation is very important
+		```python
+		try:
+		  x = 1
+		  while True:
+			print(x)
+			x+=1
+		
+		except KeyboardInterrupt:
+		  pass
+		```
+							</section>
+		
+							<section data-markdown>
+								## Indentation in REPL
+		```shell
+		>>> def foo(x):
+		...   if x == 0:
+		...     bar()
+		...     baz()
+		...   else:
+		...     qux(x)
+		...     foo(x - 1)
+		...
+		>>> 
+		```
+							</section>
 
 					<section>
 						<h2>Strongly, Dynamically Typed</h2>
 						<div class="multi-column-container">
-							<div class="column">
-								<section data-markdown>
-									- **Strong**: the type of a value doesn't change in unexpected ways.
-									- **Dynamic**: runtime objects (values) have a type, as opposed to static typing where variables have a type.
-								</section>
+							<div class="column" data-markdown>
+								- **Strong**: the type of a value doesn't change in unexpected ways.
+								- **Dynamic**: runtime objects (values) have a type, as opposed to static typing where variables have a type.
 							</div>
 							<div class="column code">
 								<pre><code class="hljs shell">
@@ -99,11 +173,12 @@
 						## Duck Typing
 						> If it walks like a duck and it quacks like a duck, then it must be a duck.
 						
-						<section>An object's suitability is determined by the presence of certain methods and properties, rather than the type of the object itself</section>
+						<section>An object's suitability is determined at runtime by the presence of certain methods and properties, rather than the type of the object itself</section>
 					</section>
 
-				</section>
-		</div>
+				</section><!--#overview-->
+
+			</div>
 		</div>
 
 		<script src="../js/reveal.js"></script>
