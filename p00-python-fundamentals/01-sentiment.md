@@ -23,7 +23,7 @@ python3 -m textblob.download_corpora
 ```
 
 ### Analyse
-We will analyse two reviews from https://www.metacritic.com/movie/avatar. Observe the results in both cases.
+We will analyse two reviews [for the movie Avatar from metacritic](https://www.metacritic.com/movie/avatar). Observe the results in both cases.
 
 REPL:
 ```
