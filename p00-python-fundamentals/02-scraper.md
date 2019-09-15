@@ -2,7 +2,7 @@
 
 ### Create Virtual Environment (optional)
 Shell:
-```
+```shell
 python3 -m venv scraper
 source ./bin/activate
 ```
@@ -11,14 +11,14 @@ source ./bin/activate
 We will use [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) for parsing HTML and [requests](https://pypi.org/project/requests/) for fetching web pages.
 
 Shell:
-```
+```shell
 pip3 install BeautifulSoup4 requests
 ```
 
 ## Parse HTML
 
 Create a simple HTML file with the following content. Let's call it `simple.html`.
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +34,7 @@ Create a simple HTML file with the following content. Let's call it `simple.html
 </html>
 ```
 Let's read it in REPL:
-```
+```shell
 >>> from contextlib import closing
 >>> from bs4 import BeautifulSoup
 
@@ -49,7 +49,7 @@ Let's read it in REPL:
 Now that the document is loaded, we can look for different nodes within the HTML DOM.
 
 Try the following in REPL:
-```
+```python
 >>> doc.find('p')
 
 >>> doc.select('#yes)
@@ -63,7 +63,7 @@ Try the following in REPL:
 Import the modules.
 
 REPL:
-```
+```shell
 >>> from requests import get
 >>> from contextlib import closing
 ```
