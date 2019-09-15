@@ -8,27 +8,11 @@ source ./bin/activate
 ```
 
 ### Dependencies
+We will use [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) for parsing HTML and [requests](https://pypi.org/project/requests/) for fetching web pages.
+
 Shell:
 ```
-pip3 install requests BeautifulSoup4
-```
-
-## Fetch a webpage
-Import the modules.
-
-REPL:
-```
->>> from requests import get
->>> from contextlib import closing
-```
-Define url and fetch content of the page.
-
-REPL:
-```
->>> url = 'https://www.hermes.com/uk/en/product/izmir-sandal-H101203ZH32420/'
->>> with closing(get(url, stream=True)) as response:
-...    content = response.content
-...    print(content)
+pip3 install BeautifulSoup4 requests
 ```
 
 ## Parse HTML
@@ -70,5 +54,40 @@ Try the following in REPL:
 
 >>> doc.select('#yes)
 
+>>> doc.select_one('#yes).text
+
 >>> doc.find_one('a').attrs
+```
+
+## Fetch a webpage
+Import the modules.
+
+REPL:
+```
+>>> from requests import get
+>>> from contextlib import closing
+```
+Define url and fetch content of the page.
+
+REPL:
+```
+>>> url = 'https://www.hermes.com/uk/en/product/izmir-sandal-H101203ZH32420/'
+>>> with closing(get(url, stream=True)) as response:
+...    content = response.content
+...    print(content)
+```
+### Inspect the page
+Open the same page in a browser and inspect the DOM.
+
+Look for the label and price field and try to identify the element name, classes or id that can identify them.
+
+REPL:
+```
+>>> html = BeautifulSoup(content, 'html.parser')
+>>> html.select('p.field-type-commerce-price')
+
+>>> html.select('p.field-type-commerce-price').text
+
+>>> html.select('p.field-type-commerce-price').text.strip()
+
 ```
