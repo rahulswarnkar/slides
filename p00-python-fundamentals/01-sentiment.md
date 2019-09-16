@@ -49,7 +49,8 @@ pip3 install tweepy termcolor
 
 Create a file called `tweets_sentiment.py` and copy the following
 ```python
-import re 
+import re
+import sys
 import tweepy 
 from auth import api_key, api_secret_key, access_token, access_token_secret
 from textblob import TextBlob 
@@ -61,7 +62,13 @@ api = tweepy.API(tweepy_auth)
 
 regex = r"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
 
-fetched_tweets = api.search(q = 'trump', count = 100) 
+if (len(sys.argv) <= 1):
+    print("No search term found.")
+    sys.exit()
+
+query = sys.argv[-1]
+print("Searching twitter with query: " + query)
+fetched_tweets = api.search(q = query, count = 100) 
 
 tweets = []
 for tweet in fetched_tweets:
@@ -83,7 +90,15 @@ access_token_secret = ''
 ```
 Update the above with twitter api credentials.
 
-Run it in shell
+Run it in shell with a search term
+Shell:
 ```shell
-python3 tweets_sentiment.py
+python3 tweets_sentiment.py trump
+python3 tweets_sentiment.py brexit
+```
+
+### Deactivate Virtual Environment (optional)
+Shell:
+```
+deactivate
 ```
