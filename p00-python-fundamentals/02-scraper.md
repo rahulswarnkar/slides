@@ -101,7 +101,7 @@ REPL:
 >>> price = doc.select_one('p.field-type-commerce-price')
 >>> name = doc.select_one('div#variant-info h1')
 
->>> print({{'name': name.text.strip(), 'sku':sku.text.strip(), 'price':price.text.strip()})
+>>> print({'name': name.text.strip(), 'sku':sku.text.strip(), 'price':price.text.strip()})
 
 >>> print(
 ...   {
