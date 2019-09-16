@@ -1,10 +1,12 @@
 # WebScraper
+> 
 
 ### Create Virtual Environment (optional)
 Shell:
 ```
 python3 -m venv scraper
-source ./bin/activate
+cd 
+source ./scraper/bin/activate
 ```
 
 ### Dependencies
@@ -52,9 +54,9 @@ Try the following in REPL:
 ```
 >>> doc.find('p')
 
->>> doc.select('#yes)
+>>> doc.select('#yes')
 
->>> doc.select_one('#yes).text
+>>> doc.select_one('#yes').text
 
 >>> doc.find_one('a').attrs
 ```
@@ -86,9 +88,9 @@ REPL:
 >>> doc = BeautifulSoup(html, 'html.parser')
 >>> doc.select('p.field-type-commerce-price')
 
->>> doc.select('p.field-type-commerce-price').text
+>>> doc.select_one('p.field-type-commerce-price').text
 
->>> doc.select('p.field-type-commerce-price').text.strip()
+>>> doc.select_one('p.field-type-commerce-price').text.strip()
 
 ```
 ### Get the values
@@ -131,4 +133,24 @@ REPL:
 ...   product_urls.append('https://www.hermes.com/' + href.attrs.get('href'))
 
 ```
-The rest of the it is left as exercise.
+Now that we have the urls to crawl, lets define a method to get the values that we are interested in.
+
+REPL:
+```
+>>> def get_info(url):
+...   with closing(get(url, stream=True)) as response:
+...     html = response.content
+...     doc = BeautifulSoup(html, 'html.parser')
+...     sku = doc.select_one('div.commerce-product-sku span')
+...     price = doc.select_one('p.field-type-commerce-price')
+...     name = doc.select_one('div#variant-info h1')
+...     return {
+...       'name':name.text.strip(),
+...       'sku':sku.text.strip(),
+...       'price':price.text.strip(),
+...     }
+
+>>> for product_url in product_urls:
+...   info = get_info(product_url)
+...   print(info)
+```
