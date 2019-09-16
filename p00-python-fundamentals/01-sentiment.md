@@ -42,6 +42,11 @@ REPL:
 ```
 
 ## Analyse Tweets
+Shell:
+```
+pip3 install tweepy termcolor
+```
+
 Create a file called `tweets_sentiment.py` and copy the following
 ```python
 import re 
