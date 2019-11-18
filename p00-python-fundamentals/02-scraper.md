@@ -1,11 +1,9 @@
 # WebScraper
-> 
 
 ### Create Virtual Environment (optional)
 Shell:
 ```
 python3 -m venv scraper
-cd 
 source ./scraper/bin/activate
 ```
 
