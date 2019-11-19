@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Python Fundamentals - Rahul Swarnkar</title>
+
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/monokai.css">
+
+		<style>
+				.multi-column-container{
+					display: flex;
+				}
+				.column{
+					flex: 1;
+				}
+		</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="python-fundamentals-2">
+					<section>
+						<h1>(More) Python Fundamentals</h1>
+					</section>
+
+					<section data-markdown>
+						## A bit of...
+						- Unit Testing
+						- Modules
+						- Classes
+						- Types(!)
+					</section>
+
+					<section data-markdown>
+						## Workshops
+						### Excuse Manager API
+						> A simple stupid API for keeping track of excuses.
+						
+						It will have the following endpoints:
+						* `GET /excuses`
+						* `GET /excuses/{id}`
+						* `POST /excuses`
+						* `DELETE /excuses/{id}`
+					</section>
+	
+				</section><!--#python-fundamentals-2-->
+
+				<section id="workshop-0">
+
+					<section data-markdown>
+						## Workshop 0
+						## Excuse Manager
+						> Open in a new window: [Excuse Manager](./00-api.html)
+					</section>
+
+					<section data-markdown>
+						## What's wrong with this code?
+						> Hint: a lot!
+					</section>
+
+					<section data-markdown>
+						## Let's try to test it...
+						### What are we testing?
+					</section>
+
+					<section data-markdown>
+						## The code violates the principle of Separation of Concerns (SoC)
+						### making it hard to _unit_ test
+					</section>
+	
+				</section><!--#workshop-0-->
+			</div>
+		</div>
+
+		<script src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true }
+				],
+
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: "100%",
+				height: "100%",
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 1,
+				maxScale: 1,
+
+				// Display the page number of the current slide
+				slideNumber: true,
+
+				// Add the current slide number to the URL hash so that reloading the
+				// page/copying the URL will return you to the same slide
+				hash: true,
+
+				// Flags whether to include the current fragment in the URL,
+				// so that reloading brings you to the same fragment position
+				fragmentInURL: true,
+
+				// Transition style
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'fast', // default/fast/slow
+			});
+		</script>
+	</body>
+</html>

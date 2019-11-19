@@ -80,7 +80,6 @@ def add_excuse():
         return 'message not found', 400
     excuse = {
         'id': len(excuse_list) + 1,
-        'author': request.remote_addr,
         'message': body['message']
     }
     app.logger.info("adding an excuse")
@@ -155,3 +154,38 @@ REPL:
 >>> requests.delete("http://localhost:5000/excuses/1")
 ```
 The above requests should have a 200 response (or 404 if not found).
+
+---
+
+## Test
+Create a file called `test_main.py` in the same location as `main.py` and paste the following code:
+```python
+import unittest
+import main
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_add(self):
+        with main.app.test_client() as c:
+            response = c.post("/excuses",
+                data = '{"message":"dummy excuse"}',
+                headers={'content-type':'application/json'})
+            self.assertEqual(response.status_code, 201, 'status code do not match')
+
+    def test_list(self):
+        with main.app.test_client() as c:
+            response = c.get("/excuses")
+            self.assertEqual(response.status_code, 200, 'status code do not match')
+
+if __name__ == '__main__':
+    unittest.main()
+```
+### Run Test
+Shell:
+```
+python -m unittest
+```
+
+---
+
+> The above code can be checked out from https://github.com/rahulswarnkar/excuse-manager/tags, tagged: w0
