@@ -84,6 +84,58 @@
 					</section>
 	
 				</section><!--#workshop-0-->
+
+				<section id="modules">
+
+					<section data-markdown>
+						## Modules
+						> A module is a file containing Python definitions and statements.
+
+						* file name is `&lt;module-name&gt;.py`
+						* global variable `__name__` within a module contains the module’s name
+					</section>
+
+					<section data-markdown>
+						## Importing modules
+						* module can contain executable statements as well as function definitions
+						* executed only the first time the module name is encountered in an import statement
+						* modules has their own private symbol tables
+						* `import` imports the names into current symbol table
+
+```python
+import math # imports entire math module into current symbol table
+x = math.sqrt(4)
+
+import math as m # namespace the imported module, in case you have a clash
+x = m.sqrt(4)
+
+from math import sqrt # only import the symbol that you are interested in
+from math import log10, log2 # perhaps you're interested in two symbols
+x = sqrt(4) # symbol `math` doesn't exist
+
+from math import factorial as fac # perhaps you don't like their names
+x = fac(4)
+```
+					</section>
+
+				</section><!--#modules-->
+
+				<section id="workshop-1">
+
+					<section data-markdown>
+						## Workshop 1
+						## Service Module
+						> Open in a new window: [Service Module](./01-module.html)
+					</section>
+
+					<section data-markdown>
+						## Exercise
+						* Add the remaining tests
+						* What's wrong with `test_add`?
+					</section>
+	
+				</section><!--#workshop-1-->
+
 			</div>
 		</div>
 
